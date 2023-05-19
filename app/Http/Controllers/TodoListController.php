@@ -14,7 +14,8 @@ class TodoListController extends Controller
     }
 
     public function show(TodoList $todo_list){
-        return response($todo_list);
+        $list = TodoList::findOrFail($todo_list->id);
+        return response($list);
     }
 
     public function store(Request $request){
